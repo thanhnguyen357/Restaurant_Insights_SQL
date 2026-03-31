@@ -1,77 +1,70 @@
 # Restaurant Orders Database Project
 
-## Overview
-This project demonstrates a **relational database design** for a restaurant ordering system. It includes tables for **Customers, Orders, Menu Items, and Order Items**, along with sample data and advanced SQL queries. This database showcases skills in **database design, SQL querying, indexing, window functions, and views**.
+This project is a sample restaurant order management database designed to demonstrate database design, SQL querying skills, and data analysis techniques. It includes normalized tables, indexes, complex queries, window functions, and views.
 
 ---
 
-## Project Structure
+## ERD Diagram
 
-| File | Description |
-|------|-------------|
-| `schema.sql` | Contains table definitions, primary/foreign keys, and indexes. |
-| `sample_data.sql` | Inserts sample data into the database. |
-| `queries.sql` | Contains various SQL queries, including **window functions** and **views**. |
-| `analysis.sql` | Contains queries used to analyze the database and summarize insights. |
-| `ERD.png` | Visual diagram showing relationships between all tables. |
+The database structure is illustrated in the included **ERD diagram** (`ERD.png`), showing all relationships between tables.
 
 ---
 
-## Database Design
+## Database Structure
 
-- **Tables included**:
-  - `Customers`: Stores customer information.
-  - `Orders`: Contains order headers linked to customers.
-  - `MenuItems`: Lists all menu items, categorized by type.
-  - `OrderItems`: Maps items to each order with quantities.
+This database includes the following tables:
 
-- **Indexes implemented**:
-  - `idx_orders_customer` on `Orders(CustomerID)` to speed up customer-related queries.
-  - `idx_orderitems_order` on `OrderItems(OrderID)` for faster order-item lookups.
+- **Customers** – Stores customer details.  
+- **Orders** – Stores order information linked to customers.  
+- **OrderItems** – Contains items in each order.  
+- **MenuItems** – Contains menu item details.  
+- **Servers** – Staff who take orders in the restaurant.  
+- **DineInOrders** – Orders placed for dine-in.  
+- **ToGoOrders** – Orders placed for takeout.  
+- **[Other tables if any]** – Additional supporting tables as required.
 
-- **Views**:
-  - Example: `vw_TotalSalesPerCustomer` aggregates sales by customer.  
-
-*ERD diagram is included in the project as `ERD.png`.*
+All tables are normalized, linked with foreign keys, and use indexes for optimized queries.
 
 ---
 
-## Sample Queries Highlights
+### How to Use
 
-- **Basic queries**: Retrieve customer orders, list menu items, and calculate total sales per order.  
-- **Advanced queries**:
-  - **Window functions**: Rank top customers, calculate running totals of sales.
-  - **Aggregations**: Count total orders per customer and per item.
-  - **Views**: Predefined queries for commonly requested summaries.
+1. **Install MySQL**  
+   Make sure MySQL Server and MySQL Workbench are installed on your computer.
+
+2. Create a new schema/database or use the existing one in `schema.sql`:  
+   ```sql
+   CREATE DATABASE IF NOT EXISTS restaurant_db;
+   USE restaurant_db;
+     ```
+
+3. **Run schema.sql to create tables and indexes**  
+   - Open `schema.sql` in MySQL Workbench.  
+   - Execute the file to create all tables and indexes.  
+
+4. **Run sample_data.sql to insert example data**  
+   - Open `sample_data.sql` in MySQL Workbench.  
+   - Execute the file to populate the tables with sample records.
+
+5. **Run queries.sql to explore sample queries**  
+   - Open `queries.sql` in MySQL Workbench.  
+   - Execute the file to see examples of:  
+     - Joins across all tables  
+     - Aggregations (SUM, COUNT, AVG)  
+     - Window functions for ranking and running totals  
+     - Views for reusable reporting  
+
+6. **Run analysis.sql to analyze the database**  
+   - Open `analysis.sql` in MySQL Workbench.  
+   - Execute the file to get insights like:  
+     - Top customers by number of orders or total spending  
+     - Most popular menu items  
+     - Server performance metrics  
+     - Total revenue and other statistics  
 
 ---
 
-## How to Use (MySQL)
-
-1. **Create the database** (if needed):  
-```sql
-CREATE DATABASE restaurant_db;
-USE restaurant_db;
-```
-2. **Run the schema to create tables and indexes**:
-```sql
-source schema.sql;
-```
-3. **Insert sample data into the database**:
-```sql
-source sample_data.sql;
-```
-4. **Run example queries:**
-```sql
-source queries.sql;
-```
-5. **Run analysis queries (optional, for exploring the data):**
-```sql
-source analysis.sql;
-```
-Tip: Always start your SQL session with USE restaurant_db; to ensure the correct database is selected.
-
-## Skills Demonstrated
+### Skills Demonstrated
 
 - Database design and normalization  
 - Writing complex SQL queries with window functions, views, and aggregations  
@@ -79,17 +72,17 @@ Tip: Always start your SQL session with USE restaurant_db; to ensure the correct
 - Data analysis using SQL  
 - Creating professional documentation for projects  
 
-## Optional Enhancements
+---
 
-- Add stored procedures for automated reporting  
-- Integrate with a web app or Python script for real-time querying  
-- Include more complex sample data to test edge cases  
+### Optional Enhancements
 
-## ERD Diagram
+- Add **stored procedures** for automated reporting  
+- Integrate with a **web app or Python script** for real-time querying  
+- Include more complex **sample data** to test edge cases  
 
-The ERD diagram for this project is included in the repository as `ERD.png` (or the relevant file name).  
+---
 
-## Contact
+### Contact
 
 Created by **[thanhnguyen357]**, a database and SQL enthusiast ready to build real-world projects.  
 Feel free to explore the queries and analyze the data!
